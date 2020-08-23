@@ -16,8 +16,6 @@ export default class DataBinding extends Component {
                 <p className="card-text">{this.product.price}</p>
             </div>
         </div>
-
-
     }
     render() {
         //Binding data
