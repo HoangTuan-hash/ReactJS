@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SanPham from '../SanPham';
+// import SanPham from '../SanPham';
 
 export default class SanPhamGioHang extends Component {
     render() {
