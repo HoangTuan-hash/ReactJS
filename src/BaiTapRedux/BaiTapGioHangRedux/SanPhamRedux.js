@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //Kết nối Redux
 import {connect} from 'react-redux'
-import BaiTapGioHangRedux from './BaiTapGioHangRedux';
+
 
 
 class SanPhamRedux extends Component {

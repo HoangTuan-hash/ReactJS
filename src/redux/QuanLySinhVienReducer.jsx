@@ -9,12 +9,13 @@ const initialState = {
 
 export default (state = initialState, action ) => {
     switch (action.type) {
-        case'THEM_SINH_VIEN':{
+        case THEM_SINH_VIEN:{
+            console.log(action.sinhVien);
             state.mangSinhVien = [...state.mangSinhVien, action.sinhVien];
             return {...state}
         }
     
     default:
-        return state
+        return {...state}
     }
 }

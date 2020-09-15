@@ -1,7 +1,7 @@
 
 const stateDefault = {
     gioHang: [
-        {maSP : 1, tenSP: 'IPhone', hinhAnh:'./img/sp_iphoneX.png', gia: 1000, soLuong:1}
+       
     ]
 
 }
@@ -68,5 +68,6 @@ export const GioHangReducer = (state = stateDefault,action) => {
         }
         default: return{...state}
     }
+    // eslint-disable-next-line no-unreachable
     return{...state}
 }

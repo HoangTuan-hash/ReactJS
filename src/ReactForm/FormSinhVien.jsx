@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import{connect} from 'react-redux'
 import {themSinhVienAction} from '../redux/action/QuanLySinhVienAction'
+import swal from 'sweetalert2';
 
 class FormSinhVien extends Component {
     state = {
@@ -43,11 +44,11 @@ class FormSinhVien extends Component {
             values: newValues,
             errors: newErros
         }, () => {
-            console.log(this.state);
+
         });
 
     }
-    hanleSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();//Chặn sự điều kiện submit của trình duyệt
         //vadlidation
         let valid = true;
@@ -63,18 +64,27 @@ class FormSinhVien extends Component {
             }
         }
         if(!valid){
-            alert('Dữ liệu không hợp lệ');
+            swal.fire(
+                'Thất bại',
+                'Dữ liệu không hợp lệ !',
+                'error'
+              )
             return;
         }
         //them sinh vien
+        console.log(this.state.values);
         const action = themSinhVienAction(this.state.values);
         //dùng props.dispatch có sẵn khi liên kết với redux sẽ có props này => dispatch action lên reducer
         this.props.dispatch(action);
-
+        swal.fire(
+            'Thành công',
+            'Thêm sinh viên thành công !',
+            'success'
+          )
     }
     render() {
         return (
-            <form className="container-fluid" onSubmit={this.hanleSubmit}>
+            <form className="container-fluid" onSubmit={this. handleSubmit}>
                 <div className="card">
                     <div className="card-header text-white bg-dark font-weight-bold" >
                         Thông tin sinh viên
