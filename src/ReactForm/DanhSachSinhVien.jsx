@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import { chinhSuaSinhVienAction } from '../redux/action/QuanLySinhVienAction';
 import FormSinhVien from './FormSinhVien'
 class DanhSachSinhVien extends Component {
     renderDanhSachSV = () =>{
@@ -12,7 +13,12 @@ class DanhSachSinhVien extends Component {
                 <td>{sinhVien.email}</td>
                 <td>{sinhVien.soDienThoai}</td>
                 <td>
-                    <button className="btn btn-primary">Chỉnh sửa</button>
+                    <button className="btn btn-primary" onClick={()=>{
+                        //dispatch thông tin, cập nhật lại thông tin state.sinhVienSua trên redux
+                        let action = chinhSuaSinhVienAction(sinhVien);
+                        //dua du lieu len redux
+                        this.props.dispatch(action)
+                    }}>Chỉnh sửa</button>
                     <button className="btn btn-danger">Xóa</button>
                 </td>
             </tr>)
@@ -22,8 +28,8 @@ class DanhSachSinhVien extends Component {
         return (
             <div className="container-fluid">
                 <FormSinhVien />
-                <table className="table bg-dark text-white">
-                    <thead>
+                <table className="table ">
+                    <thead className="bg-dark text-white">
                         <tr>
                             <th>Mã sinh viên</th>
                             <th>Tên sinh viên</th>
@@ -43,9 +49,9 @@ class DanhSachSinhVien extends Component {
         )
     }
 }
-const mapStateToProps = (state) => {
-    return {
+const mapStateToProps = (state) => 
+({
         quanLySinhVien : state.QuanLySinhVienReducer.mangSinhVien
     }
-}
+)
 export default connect(mapStateToProps)(DanhSachSinhVien)
