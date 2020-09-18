@@ -17,6 +17,7 @@ import BaiTapGioHangRedux from './BaiTapRedux/BaiTapGioHangRedux/BaiTapGioHangRe
 import BaiTapTaiXiu from './BaiTapRedux/BaiTapGameTaiXiu/BaiTapTaiXiu';
 import FormSinhVien from './ReactForm/FormSinhVien';
 import DanhSachSinhVien from './ReactForm/DanhSachSinhVien';
+import LifeCycle from './LifeCycle/LifeCycle';
 
 function App() {
   // let mangSanPham = [
@@ -48,6 +49,7 @@ function App() {
      {/* <BaiTapGioHangRedux /> */}
      {/* <BaiTapTaiXiu /> */}
      <DanhSachSinhVien />
+     {/* <LifeCycle /> */}
     </div>
   );
 }
